@@ -3,6 +3,8 @@ import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import Providers from "./providers";
 import { ClerkProvider } from "@clerk/nextjs";
+import { Toaster } from "sonner";
+import { Suspense } from "react";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -21,15 +23,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider >
+    <ClerkProvider>
       <html lang="en">
-        <body
-          className={`${dmSans.className}`}
-        >
+        <body className={`${dmSans.className}`}>
           <Providers>
-            <div className="root-layout">
-              {children}
-            </div>
+            <Suspense fallback={null}>
+              <div className="root-layout">{children}</div>
+            </Suspense>
+            <Toaster richColors closeButton />
           </Providers>
         </body>
       </html>
