@@ -8,6 +8,7 @@ import * as dynamoose from "dynamoose";
 import coursesRoutes from "./routes/courseRoutes";
 import { clerkMiddleware, createClerkClient, requireAuth } from '@clerk/express'
 import userClerkRoutes from "./routes/userClerkRoutes";
+import transactionRoutes from "./routes/transactionRoutes";
 
 dotenv.config()
 
@@ -37,6 +38,7 @@ app.get('/', (req, res) => {
 
 app.use("/courses", coursesRoutes)
 app.use("/users/clerk", requireAuth(), userClerkRoutes)
+app.use("/transactions", requireAuth(), transactionRoutes)
 
 
 
