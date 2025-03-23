@@ -67,12 +67,12 @@ const CheckoutDetailsPage = () => {
               </form>
             </Form>
           </div>
-
+{/* 
           <div className="checkout-details__divider">
             <hr className="checkout-details__divider-line" />
             <span className="checkout-details__divider-text">Or</span>
             <hr className="checkout-details__divider-line" />
-          </div>
+          </div> */}
 
           <div className="checkout-details__auth">
             {showSignUp ? <SignUpComponent /> : <SignInComponent />}
